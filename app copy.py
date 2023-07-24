@@ -23,7 +23,6 @@ def after_request(response):
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    # Retrieve the records using db.fetch() and extract the actual items
     records_response = db.fetch()
     records = list(records_response.items)
     records.sort(key=lambda x: x.timestamp, reverse=True)
@@ -68,7 +67,7 @@ def process_request():
         audio_file_key = request.form.get('audio_file_key')
         option = request.form.get('option')
         print("heeh1")
-        # Retrieve the audio file data from Deta Drive
+        
         audio_data = drive.get(audio_file_key)
         print("heeh2")
         processed_data = "bob"
@@ -84,6 +83,7 @@ def process_request():
         #     return Response('{"status":"error", "message":"Invalid option selected"}', status=400, mimetype='application/json')
 
         # Update the record with the processed data
+        
         record = db.get(unique_key)
         record['processed_data'] = processed_data
         db.put(record, unique_key)
