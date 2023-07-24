@@ -7,7 +7,8 @@ from text_processes import transcribe_audio, summarize_text, outline_text
 
 app = Flask(__name__)
 
-dt = Deta("b07WpJ6uwom8_KCqJAmGzJkwYLwtM84A1TCDHnKd492jZ")
+# Configure Deta, replace PROJECT KEY with actual API key
+dt = Deta("PROJECT KEY")
 db = dt.Base("summaries")
 drive = dt.Drive("audios")
 
