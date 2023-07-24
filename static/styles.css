@@ -1,0 +1,125 @@
+html, body {
+    font-family: Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+}
+
+h1 {
+    text-align: center;
+    font-size: 6vmin;
+    margin: 32px 0;
+}
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin: 12px 0;
+}
+
+.topline {
+    width: 90%;
+    margin: 0 auto 20px;
+}
+
+/* Buttons */
+.new-btn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    color: #73AD21;
+    font-size: 40px;
+    background-color: #40444b;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.new-btn:hover { background-color: #555; }
+
+/* To-do items*/
+#past_request {
+    background-color: #40444b;
+    width: 80%;
+    margin: 12px auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+}
+.todo-name { font-size: 3vh; }
+.todo-desc { margin-right: auto; }
+.del { color: white; }
+
+/* Create To-do Modal */
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover, .close:focus, .del-ico:hover { color: #f44336; }
+
+dialog::backdrop {
+    background-color: #6668;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+}
+.create-form :is(input, textarea, button) {
+    width: 400px;
+    font: inherit;
+    font-size: 16px;
+    padding: 8px 12px;
+    resize: vertical;
+}
+.create-form .actions {
+    width: 424px;
+    display: flex;
+    gap: 16px;
+}
+
+/* ... Your existing CSS ... */
+
+.record {
+    background-color: #40444b;
+    width: 80%;
+    margin: 12px auto;
+    border-radius: 10px;
+    padding: 10px 16px;
+}
+
+.record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.record-header h3 {
+    font-size: 3vh;
+    margin: 0;
+}
+
+.timestamp {
+    font-size: 1.5vh;
+    margin: 0;
+}
+
+.todo-desc {
+    margin: 8px 0;
+}
+
+.audio-name {
+    margin: 8px 0;
+}
+
+.processed-data {
+    margin: 8px 0;
+}

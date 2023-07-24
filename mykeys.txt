@@ -1,0 +1,4 @@
+project key: b07WpJ6uwom8_KCqJAmGzJkwYLwtM84A1TCDHnKd492jZ
+login key: mGzCmCde_nYGhRB6s8rvUrXX8iwDc7aaY5avhaHiy
+openai key: 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
+

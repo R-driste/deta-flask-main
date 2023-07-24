@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Avoid getting favicon -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Quick Audio to Text</h1>
+    <p>Convert an audio file to a transcript, summary, or outline</p>
+    <hr class="topline">
+
+   <div id="task-list">
+        {% for record in records %}
+        <div class="record" id="past_request">
+            <div class="record-header">
+                <h3>{{ record.name }}</h3>
+            </div>
+            <p class="todo-desc">{{ record.desc }}</p>
+            <p class="audio-name">Audio File Name: {{ record.audio_file_name }}</p>
+            {% if record.processed_data %}
+            <br>
+            <p class="processed-data">Processed Data:<br>{{ record.processed_data }}</p>
+            {% endif %}
+            <form action="/delete/{{ record.key }}" method="post">
+                <button type="submit" class="delete-btn">Delete</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+    <button class="new-btn" onclick="this.nextElementSibling.showModal()">+</button>
+
+    <dialog id="new-modal" class="popup">
+        <span onclick="this.parentNode.close()" class="close" title="Close Modal">&times;</span>
+        <h2>New To-do</h2><br>
+        <!-- Add the form to create a to-do here -->
+        <form class="create-form" action="/create" method="post" enctype="multipart/form-data">
+            <input name="name" placeholder="Title" type="text" required><br>
+            <textarea name="desc" placeholder='Description' rows="6" required></textarea><br>
+            <input name="audio_file" type="file" accept="audio/*" required><br>
+            
+            <input type="radio" id="transcript_chosen" name="option" value="transcript" required>
+            <label for="transcript_chosen">Transcript</label><br>
+            
+            <input type="radio" id="summary_chosen" name="option" value="summary" required>
+            <label for="summary_chosen">Summary</label><br>
+            
+            <input type="radio" id="outline_chosen" name="option" value="outline" required>
+            <label for="outline_chosen">Outline</label><br>
+            
+            <div class="actions">
+                <button type="button" onclick="document.getElementById('new-modal').close()">Cancel</button>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </dialog>
+</body>
+</html>
