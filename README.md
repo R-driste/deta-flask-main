@@ -1,5 +1,4 @@
-# deta-flask-main
-QuickSummary
+# QuickSummary
 Quickly convert lectures to transcripts, summaries, and outlines.
 
 Inspiration
