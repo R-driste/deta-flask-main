@@ -1,10 +1,9 @@
 import openai
 
-# Replace 'YOUR_OPENAI_API_KEY' with your actual OpenAI API key
-openai.api_key = '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'
+# Replace 'KEY' with actual OpenAI API key
+openai.api_key = 'KEY'
 
 def transcribe_audio(audio_data):
-    # Convert binary audio data to text using the OpenAI Whisper API
     response = openai.Transcription.create(
         audio=audio_data,
         engine='whisper',
@@ -14,7 +13,6 @@ def transcribe_audio(audio_data):
     return text
 
 def summarize_text(text):
-    # Call the OpenAI API to summarize the input text
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=text,
@@ -25,7 +23,6 @@ def summarize_text(text):
     return summary
 
 def outline_text(text):
-    # Call the OpenAI API to generate bullet points for the input text
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt="Outline:\n" + text,
